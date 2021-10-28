@@ -14,25 +14,20 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CardTest {
-
-
-    private static Object WebDriver;
     private WebDriver driver;
 
     @BeforeAll
     static void setUpAll() {
-        WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
-        WebDriver = new ChromeDriver(options);
     }
 
     @BeforeEach
     void setUp() {
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
+        driver = WebDriverManager.chromedriver().create();
     }
 
     @AfterEach
