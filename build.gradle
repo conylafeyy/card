@@ -20,6 +20,10 @@ dependencies {
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
 }
 
+dependencies {
+    testImplementation("io.github.bonigarcia:webdrivermanager:5.0.3")
+}
+
 test {
     useJUnitPlatform()
 }
